@@ -1,5 +1,5 @@
 # TheLastStepikTask
-This is final task of Stepik auto-test course
+### This is the final task of Stepik auto-test course
 
 base_page.py - contains methods of full project
 
