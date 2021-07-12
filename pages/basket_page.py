@@ -43,6 +43,8 @@ class BasketPage(BasePage):
             "en-US": "Your basket is empty."
         }
         local_lang = next(value for key, value in languages.items() if key in self.browser.current_url.split("/"))
+        # делаем одну итерацию (next) по ключам словаря, находим совпадение с языком из строки браузера
+        # возвращаем значение найденного ключа т.е.  "Your basket is empty."
         full_text = self.browser.find_element(*BasketPageLocators.BASKET_EMPTY).text
         a_text = self.browser.find_element(*BasketPageLocators.BASKET_EMPTY_LINK_A).text
         assert local_lang == full_text.replace(a_text, "")[:-1], \
