@@ -23,10 +23,12 @@ class TestUserAddToBasketFromProductPage:
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
+        # Раскомментируйте следующую строку, чтобы проверить работу с промокодом
+        # link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
         page = ProductPage(browser, link)
         page.open()
         page.product_add_to_basket()
-        if link.find("promo=offer") > 0:
+        if link.find("promo=") > 0:
             page.solve_quiz_and_get_code()
         page.should_be_product_page()
 
